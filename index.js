@@ -15,6 +15,7 @@ app.get("/", (req, res) => {
   res.send("Welcome to Food Recipes API");
 });
 app.use("/auth", require("./routes/users"));
+app.use("/recipes", require("./routes/recipes"));
 
 // Server connection
 app.listen(port, () => {
