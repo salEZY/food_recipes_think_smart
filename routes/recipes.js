@@ -1,6 +1,7 @@
 const express = require("express");
 
 const Recipe = require("../models/Recipe");
+const auth = require("../util/token");
 
 const router = express.Router();
 
@@ -32,7 +33,7 @@ router.get("/:recipeId", async (req, res) => {
 });
 
 // POST create new recipe
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
   const { name, description, ingridients, category } = req.body;
 
   let recipe;
@@ -59,7 +60,7 @@ router.post("/", async (req, res) => {
 });
 
 // PUT Edit recipe
-router.put("/:recipeId", async (req, res) => {
+router.put("/:recipeId", auth, async (req, res) => {
   const { name, description } = req.body;
 
   let recipe;
@@ -83,7 +84,7 @@ router.put("/:recipeId", async (req, res) => {
 });
 
 // DELETE recipe
-router.delete("/:recipeId", async (req, res) => {
+router.delete("/:recipeId", auth, async (req, res) => {
   let recipe;
   try {
     recipe = await Recipe.findById(req.params.recipeId);

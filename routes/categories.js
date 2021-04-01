@@ -2,6 +2,7 @@ const express = require("express");
 
 const Recipe = require("../models/Recipe");
 const Category = require("../models/Category");
+const auth = require("../util/token");
 
 const router = express.Router();
 
@@ -17,7 +18,7 @@ router.get("/", async (req, res) => {
   res.send(categories);
 });
 
-// GET recipes from single category
+// GET recipes of specific category
 router.get("/recipes", async (req, res) => {
   let category;
   try {
@@ -37,7 +38,7 @@ router.get("/recipes", async (req, res) => {
 });
 
 // POST create category
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
   let category;
   try {
     category = await Category.findOne({ name: req.body.name });
@@ -62,7 +63,7 @@ router.post("/", async (req, res) => {
 });
 
 // PUT edit category
-router.put("/:categoryId", async (req, res) => {
+router.put("/:categoryId", auth, async (req, res) => {
   let category;
   try {
     category = await Category.findById(req.params.categoryId);
@@ -86,7 +87,7 @@ router.put("/:categoryId", async (req, res) => {
 });
 
 // DELETE delete a category
-router.delete("/:categoryId", async (req, res) => {
+router.delete("/:categoryId", auth, async (req, res) => {
   let category;
   try {
     category = await Category.findById(req.params.categoryId);
