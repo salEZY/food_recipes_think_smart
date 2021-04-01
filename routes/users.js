@@ -5,6 +5,7 @@ const User = require("../models/User");
 
 const router = express.Router();
 
+// POST register user
 router.get("/", (req, res) => {
   res.send("USER ROUTES");
 });
@@ -18,11 +19,9 @@ router.post("/register", async (req, res) => {
     user = await User.findOne({ email });
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ message: "Server error locating user!" });
+    return res.status(500).json({ message: "Error fetching user." });
   }
-  if (user) {
-    return res.status(422).json({ message: "User already exits" });
-  }
+  if (user) return res.status(403).json({ message: "User already exits." });
 
   user = new User({
     email,
@@ -39,37 +38,35 @@ router.post("/register", async (req, res) => {
     await user.save();
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ message: "Server error saving!" });
+    return res.status(500).json({ message: "Error saving user." });
   }
 
   // JWT
   let token = user.generateToken();
-  res.header("x-auth-token", token).send(user);
+  res.header("x-auth-token", token).json({ id: user._id, email: user.email });
 });
 
+// POST user login
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
+
   let user;
   try {
     // Check if user exists
     user = await User.findOne({ email });
   } catch (error) {
-    return res.status(404).json({ message: "Could not find the user!" });
+    return res.status(500).json({ message: "Error fetching user." });
   }
+  if (!user) return res.status(403).json({ message: "User does NOT exist." });
 
-  if (!user) {
-    return res.status(422).json({ message: "User does NOT exist!" });
-  }
-
+  // Password comparison
   const isMatch = await bcrypt.compare(password, user.password);
-
-  if (!isMatch) {
-    return res.status(422).json({ message: "Invalid password. Try again?" });
-  }
+  if (!isMatch)
+    return res.status(403).json({ message: "Invalid password. Try again?" });
 
   // JWT
   let token = user.generateToken();
-  res.header("x-auth-token", token).send(user);
+  res.header("x-auth-token", token).json({ id: user._id, email: user.email });
 });
 
 module.exports = router;
