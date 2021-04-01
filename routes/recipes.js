@@ -33,7 +33,7 @@ router.get("/:recipeId", async (req, res) => {
 
 // POST create new recipe
 router.post("/", async (req, res) => {
-  const { name, description } = req.body;
+  const { name, description, ingridients, category } = req.body;
 
   let recipe;
   try {
@@ -46,6 +46,8 @@ router.post("/", async (req, res) => {
   recipe = new Recipe({
     name,
     description,
+    ingridients,
+    category,
   });
   try {
     await recipe.save();
