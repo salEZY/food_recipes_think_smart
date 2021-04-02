@@ -1,0 +1,362 @@
+{
+	"info": {
+		"_postman_id": "75d08f29-e067-4691-862d-2b05bff997d0",
+		"name": "Food Recipes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "/auth/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test1@test.com\",\r\n    \"password\": \"12345\",\r\n    \"firstName\": \"CHIKA\",\r\n    \"lastName\": \"SALEZYNHO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"register"
+							]
+						},
+						"description": "Register endpoint"
+					},
+					"response": []
+				},
+				{
+					"name": "/auth/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test@test.com\",\r\n    \"password\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "Login Endpoint"
+					},
+					"response": []
+				},
+				{
+					"name": "/auth/:recipeId",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY3MWNmNzk0MzA3YTEzOTgwMGIwNGIiLCJpYXQiOjE2MTczNzAzNzcsImV4cCI6MTYxNzM3Mzk3N30.AOTNvVmCJ5hFoynNI5oZ2eX30sfbXYp3VcneCAf1WTw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/auth/6064a4f0f72c0055c8854861",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"6064a4f0f72c0055c8854861"
+							]
+						},
+						"description": "POST add recipe to favorites"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Recipes",
+			"item": [
+				{
+					"name": "/recipes/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						},
+						"description": "Get all recipes"
+					},
+					"response": []
+				},
+				{
+					"name": "/recipes/:recipeId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/recipes/6064862a20d65636f0212c44",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"recipes",
+								"6064862a20d65636f0212c44"
+							]
+						},
+						"description": "GET single recipe"
+					},
+					"response": []
+				},
+				{
+					"name": "/recipes/",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY3MzYzY2E1OWU0ZTViOTg5MjRiYzgiLCJpYXQiOjE2MTczODU0NTIsImV4cCI6MTYxNzM4OTA1Mn0.1Zo6TXlu1m8siYzrkYsfAIOFakjC4HL0wS4hwtTpOBY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Lasagne Bolognese part 3",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Epic italian dish",
+									"type": "text"
+								},
+								{
+									"key": "img",
+									"type": "file",
+									"src": "/E:/1984 mathematics 1600x1200 wallpaper_www.knowledgehi.com_17.jpg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/recipes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"recipes"
+							]
+						},
+						"description": "POST create new recipe"
+					},
+					"response": []
+				},
+				{
+					"name": "/recipes/:recipeId",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/recipes/6064862a20d65636f0212c44",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"recipes",
+								"6064862a20d65636f0212c44"
+							]
+						},
+						"description": "PUT edit recipe"
+					},
+					"response": []
+				},
+				{
+					"name": "/recipes/:recipeId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/recipes/60648d05cc22ce15ac193331",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"recipes",
+								"60648d05cc22ce15ac193331"
+							]
+						},
+						"description": "DELETE recipe"
+					},
+					"response": []
+				},
+				{
+					"name": "/img/:recipeId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						},
+						"description": "GET image of recipe"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "/categories/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"categories"
+							]
+						},
+						"description": "GET all categories"
+					},
+					"response": []
+				},
+				{
+					"name": "/categories/recipes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						},
+						"description": "GET recipe of one category"
+					},
+					"response": []
+				},
+				{
+					"name": "/categories/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Chicken\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/categories/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"categories",
+								""
+							]
+						},
+						"description": "POST create new category"
+					},
+					"response": []
+				},
+				{
+					"name": "/categories/:categoryId",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Organic Chicken\",\r\n    \"image\": \"blalba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/categories/6065bbb8e5cca8041c9c74ce",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"categories",
+								"6065bbb8e5cca8041c9c74ce"
+							]
+						},
+						"description": "PUT edit category"
+					},
+					"response": []
+				},
+				{
+					"name": "/categories/:categoryId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/categories/6065bbb8e5cca8041c9c74ce",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"categories",
+								"6065bbb8e5cca8041c9c74ce"
+							]
+						},
+						"description": "DELETE remove category"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
