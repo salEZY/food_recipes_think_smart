@@ -26,6 +26,10 @@ const UserSchema = new mongoose.Schema(
       maxlength: 55,
     },
     recipes: [{ type: mongoose.Types.ObjectId, ref: "recipes" }],
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );

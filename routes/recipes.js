@@ -1,7 +1,8 @@
 const express = require("express");
 
 const Recipe = require("../models/Recipe");
-const auth = require("../util/token");
+const { userCheck, adminCheck } = require("../util/authorize");
+const convertImg = require("../util/image");
 
 const router = express.Router();
 
@@ -23,18 +24,43 @@ router.get("/", async (req, res) => {
 router.get("/:recipeId", async (req, res) => {
   let recipe;
   try {
-    recipe = await Recipe.findById(req.params.recipeId);
+    recipe = await Recipe.findById(req.params.recipeId).select(
+      "name description ingridients"
+    );
   } catch (error) {
     console.error(error.message);
-    return res.status(404).send("Error fetching recipe. Invalid id provided");
+    return res.status(404).send("Error fetching recipe.");
   }
 
+  // const img = Buffer.from(recipe.image, "base64");
+  // recipe.image = img;
   res.send(recipe);
 });
 
+// GET image of recipe
+router.get("/img/:recipeId", async (req, res) => {
+  let recipe;
+  try {
+    recipe = await Recipe.findById(req.params.recipeId);
+  } catch (error) {
+    return res.status(404).send("Error fetching recipe.");
+  }
+
+  const { image } = recipe;
+  if (!image) return res.status(403).send("No image found");
+
+  const img = Buffer.from(image, "base64");
+  res.contentType("image/png").send(img);
+});
+
+// User check middleware
+router.use(userCheck);
+
 // POST create new recipe
-router.post("/", auth, async (req, res) => {
+router.post("/", async (req, res) => {
   const { name, description, ingridients, category } = req.body;
+  let img;
+  if (req.files) img = await convertImg(req.files);
 
   let recipe;
   try {
@@ -49,6 +75,7 @@ router.post("/", auth, async (req, res) => {
     description,
     ingridients,
     category,
+    image: img,
   });
   try {
     await recipe.save();
@@ -60,7 +87,7 @@ router.post("/", auth, async (req, res) => {
 });
 
 // PUT Edit recipe
-router.put("/:recipeId", auth, async (req, res) => {
+router.put("/:recipeId", async (req, res) => {
   const { name, description } = req.body;
 
   let recipe;
@@ -83,8 +110,11 @@ router.put("/:recipeId", auth, async (req, res) => {
   res.send(recipe);
 });
 
+// Admin check middleware
+router.use(adminCheck);
+
 // DELETE recipe
-router.delete("/:recipeId", auth, async (req, res) => {
+router.delete("/:recipeId", async (req, res) => {
   let recipe;
   try {
     recipe = await Recipe.findById(req.params.recipeId);

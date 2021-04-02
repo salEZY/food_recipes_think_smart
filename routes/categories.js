@@ -2,7 +2,7 @@ const express = require("express");
 
 const Recipe = require("../models/Recipe");
 const Category = require("../models/Category");
-const auth = require("../util/token");
+const { userCheck, adminCheck } = require("../util/authorize");
 
 const router = express.Router();
 
@@ -37,8 +37,11 @@ router.get("/recipes", async (req, res) => {
   res.send(recipesByCategory);
 });
 
+// User check middleware
+router.use(userCheck);
+
 // POST create category
-router.post("/", auth, async (req, res) => {
+router.post("/", async (req, res) => {
   let category;
   try {
     category = await Category.findOne({ name: req.body.name });
@@ -63,7 +66,7 @@ router.post("/", auth, async (req, res) => {
 });
 
 // PUT edit category
-router.put("/:categoryId", auth, async (req, res) => {
+router.put("/:categoryId", async (req, res) => {
   let category;
   try {
     category = await Category.findById(req.params.categoryId);
@@ -86,8 +89,11 @@ router.put("/:categoryId", auth, async (req, res) => {
   res.send(category);
 });
 
+// Admin check middleware
+router.use(adminCheck);
+
 // DELETE delete a category
-router.delete("/:categoryId", auth, async (req, res) => {
+router.delete("/:categoryId", async (req, res) => {
   let category;
   try {
     category = await Category.findById(req.params.categoryId);
