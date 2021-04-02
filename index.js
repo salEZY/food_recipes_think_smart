@@ -1,5 +1,7 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
+const fileUpload = require("express-fileupload");
 const port = process.env.PORT || 5000;
 
 const connectToDb = require("./util/db");
@@ -9,7 +11,10 @@ const app = express();
 // Connect to Mongo Atlas
 connectToDb();
 
+// Middlewares
 app.use(express.json({ extended: false }));
+app.use(cors());
+app.use(fileUpload());
 
 //Routes
 app.get("/", (req, res) => {

@@ -11,6 +11,12 @@ const CategorySchema = new mongoose.Schema(
     image: {
       type: String,
     },
+    hasImage: {
+      type: Boolean,
+      default() {
+        return Boolean(this.image);
+      },
+    },
   },
   { timestamps: true }
 );
