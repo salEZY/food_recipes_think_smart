@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"test1@test.com\"\r\n    \r\n}",
+							"raw": "{\r\n    \"email\": \"admin@test.com\",\r\n    \"password\": \"12345\",\r\n    \"firstName\": \"Aleksandar\",\r\n    \"lastName\": \"Bobic\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -23,12 +23,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/auth/register",
-							"protocol": "http",
+							"raw": "https://food-recipes-think-smart.herokuapp.com/auth/register",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"food-recipes-think-smart",
+								"herokuapp",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"auth",
 								"register"
@@ -45,7 +46,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"test@test.com\",\r\n    \"password\": \"12345\"\r\n}",
+							"raw": "{\r\n    \"email\": \"admin@test.com\",\r\n    \"password\": \"12345\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -53,12 +54,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/auth/login",
-							"protocol": "http",
+							"raw": "https://food-recipes-think-smart.herokuapp.com/auth/login",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"food-recipes-think-smart",
+								"herokuapp",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"auth",
 								"login"
@@ -75,17 +77,18 @@
 						"header": [
 							{
 								"key": "x-auth-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY3MWNmNzk0MzA3YTEzOTgwMGIwNGIiLCJpYXQiOjE2MTczNzAzNzcsImV4cCI6MTYxNzM3Mzk3N30.AOTNvVmCJ5hFoynNI5oZ2eX30sfbXYp3VcneCAf1WTw",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY3MzYzY2E1OWU0ZTViOTg5MjRiYzgiLCJpYXQiOjE2MTczNzY4MjgsImV4cCI6MTYxNzM4MDQyOH0.gnYO8Dpoi6Egcjgn7MqgnEZlfSJDHVQ5P-Jv282KF4k",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:5000/auth/6064a4f0f72c0055c8854861",
-							"protocol": "http",
+							"raw": "https://food-recipes-think-smart.herokuapp.com/auth/6064a4f0f72c0055c8854861",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"food-recipes-think-smart",
+								"herokuapp",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"auth",
 								"6064a4f0f72c0055c8854861"
@@ -102,11 +105,33 @@
 			"item": [
 				{
 					"name": "/recipes/",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "https://food-recipes-think-smart.herokuapp.com/recipes/",
+							"protocol": "https",
+							"host": [
+								"food-recipes-think-smart",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"recipes",
+								""
+							]
 						},
 						"description": "Get all recipes"
 					},
@@ -118,15 +143,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/recipes/6064862a20d65636f0212c44",
-							"protocol": "http",
+							"raw": "https://food-recipes-think-smart.herokuapp.com/recipes/60675a3421cc8239b0a62af0",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"food-recipes-think-smart",
+								"herokuapp",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"recipes",
-								"6064862a20d65636f0212c44"
+								"60675a3421cc8239b0a62af0"
 							]
 						},
 						"description": "GET single recipe"
@@ -176,12 +202,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/recipes",
-							"protocol": "http",
+							"raw": "https://food-recipes-think-smart.herokuapp.com/recipes",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"food-recipes-think-smart",
+								"herokuapp",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"recipes"
 							]
@@ -211,12 +238,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/recipes/6064862a20d65636f0212c44",
-							"protocol": "http",
+							"raw": "https://food-recipes-think-smart.herokuapp.com/recipes/6064862a20d65636f0212c44",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"food-recipes-think-smart",
+								"herokuapp",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"recipes",
 								"6064862a20d65636f0212c44"
@@ -238,12 +266,13 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:5000/recipes/60648d05cc22ce15ac193331",
-							"protocol": "http",
+							"raw": "https://food-recipes-think-smart.herokuapp.com/recipes/60648d05cc22ce15ac193331",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"food-recipes-think-smart",
+								"herokuapp",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"recipes",
 								"60648d05cc22ce15ac193331"
@@ -259,7 +288,18 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "https://food-recipes-think-smart.herokuapp.com/recipes/img/60686049042dd05b0c71ca1f",
+							"protocol": "https",
+							"host": [
+								"food-recipes-think-smart",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"recipes",
+								"img",
+								"60686049042dd05b0c71ca1f"
+							]
 						},
 						"description": "GET image of recipe"
 					},
@@ -276,14 +316,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/categories",
-							"protocol": "http",
+							"raw": "https://food-recipes-think-smart.herokuapp.com/categories/",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"food-recipes-think-smart",
+								"herokuapp",
+								"com"
 							],
-							"port": "5000",
 							"path": [
-								"categories"
+								"categories",
+								""
 							]
 						},
 						"description": "GET all categories"
@@ -292,11 +334,33 @@
 				},
 				{
 					"name": "/categories/recipes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\": \"Chicken\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "https://food-recipes-think-smart.herokuapp.com/categories/recipes",
+							"protocol": "https",
+							"host": [
+								"food-recipes-think-smart",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"categories",
+								"recipes"
+							]
 						},
 						"description": "GET recipe of one category"
 					},
@@ -323,12 +387,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/categories/",
-							"protocol": "http",
+							"raw": "https://food-recipes-think-smart.herokuapp.com/categories/",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"food-recipes-think-smart",
+								"herokuapp",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"categories",
 								""
@@ -359,12 +424,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/categories/606614f16fae9f5f54dc6883",
-							"protocol": "http",
+							"raw": "https://food-recipes-think-smart.herokuapp.com/categories/606614f16fae9f5f54dc6883",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"food-recipes-think-smart",
+								"herokuapp",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"categories",
 								"606614f16fae9f5f54dc6883"
@@ -386,12 +452,13 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:5000/categories/6065bbb8e5cca8041c9c74ce",
-							"protocol": "http",
+							"raw": "https://food-recipes-think-smart.herokuapp.com/categories/6065bbb8e5cca8041c9c74ce",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"food-recipes-think-smart",
+								"herokuapp",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"categories",
 								"6065bbb8e5cca8041c9c74ce"

@@ -38,4 +38,4 @@ Categories:
 
 `/categories/:categoryId` DELETE - delete a recipe (admin route)
 
-Postman collection provided in the repo.
+Newest Postman collection provided in the repo. Use this one because it has Heroku app url provided.
