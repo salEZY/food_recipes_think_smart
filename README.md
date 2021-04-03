@@ -2,7 +2,7 @@
 
 API created as technical task for Think Smart
 
-Postman collection provided in the repo.
+API was deployed to Heroku: https://food-recipes-think-smart.herokuapp.com/
 
 Routes:
 
@@ -37,3 +37,5 @@ Categories:
 `/categories/:categoryId` PUT - update a recipe (authenticated user route)
 
 `/categories/:categoryId` DELETE - delete a recipe (admin route)
+
+Postman collection provided in the repo.
