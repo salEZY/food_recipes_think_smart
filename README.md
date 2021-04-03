@@ -1,4 +1,4 @@
-`Food Recipes API`
+~Food Recipes API~
 
 API created as technical task for Think Smart
 
@@ -8,34 +8,32 @@ Routes:
 
 User:
 
-``/auth/register`` POST - register user
-``/auth/login`` POST - login an user
-``/auth/:recipeId`` POST - add recipe to user's favorites
+`/auth/register` POST - register user
+`/auth/login` POST - login an user
+`/auth/:recipeId` POST - add recipe to user's favorites
 
-Recipes: 
+Recipes:
 
-``/recipes/`` GET - fetch all recipes
+`/recipes/` GET - fetch all recipes
 
-``/recipes/:recipeId`` - fetch single recipe
+`/recipes/:recipeId` - fetch single recipe
 
-``/recipes/`` POST - create a new recipe (authenticated user route)
+`/recipes/` POST - create a new recipe (authenticated user route)
 
-``/recipes/:recipeId`` PUT - update a recipe (authenticated user route)
+`/recipes/:recipeId` PUT - update a recipe (authenticated user route)
 
-``/recipes/:recipeID`` DELETE - delete a recipe (admin route)
+`/recipes/:recipeID` DELETE - delete a recipe (admin route)
 
-``/img/:recipeID`` GET - fetch the corresponding image of recipe
+`/img/:recipeID` GET - fetch the corresponding image of recipe
 
-Categories: 
+Categories:
 
-``/categories/`` GET - fetch all categories
+`/categories/` GET - fetch all categories
 
-``/recipes/recipes`` - fetch all recipes of one category
+`/recipes/recipes` - fetch all recipes of one category
 
-``/categories/`` POST - create a new category (authenticated user route)
+`/categories/` POST - create a new category (authenticated user route)
 
-``/categories/:categoryId`` PUT - update a recipe (authenticated user route)
+`/categories/:categoryId` PUT - update a recipe (authenticated user route)
 
-``/categories/:categoryId`` DELETE - delete a recipe (admin route)
-
-
+`/categories/:categoryId` DELETE - delete a recipe (admin route)
