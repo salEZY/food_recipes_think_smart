@@ -1,7 +1,6 @@
 require("dotenv").config();
 const express = require("express");
-const cors = require("cors");
-const fileUpload = require("express-fileupload");
+
 const port = process.env.PORT || 5000;
 
 const connectToDb = require("./util/db");
@@ -12,17 +11,10 @@ const app = express();
 connectToDb();
 
 // Middlewares
-app.use(express.json({ extended: false }));
-app.use(cors());
-app.use(fileUpload());
+require("./util/middlewares")(app);
 
 //Routes
-app.get("/", (req, res) => {
-  res.send("Welcome to Food Recipes API");
-});
-app.use("/auth", require("./routes/users"));
-app.use("/recipes", require("./routes/recipes"));
-app.use("/categories", require("./routes/categories"));
+require("./routes/routes")(app);
 
 // Server connection
 app.listen(port, () => {

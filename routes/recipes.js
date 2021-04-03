@@ -1,4 +1,6 @@
 const express = require("express");
+const Joi = require("joi");
+Joi.objectId = require("joi-objectid")(Joi);
 
 const Recipe = require("../models/Recipe");
 const { userCheck, adminCheck } = require("../util/authorize");
@@ -58,6 +60,9 @@ router.use(userCheck);
 
 // POST create new recipe
 router.post("/", async (req, res) => {
+  const { error } = validateRecipe(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
   const { name, description, ingridients, category } = req.body;
   let img;
   if (req.files) img = await convertImg(req.files);
@@ -132,3 +137,14 @@ router.delete("/:recipeId", async (req, res) => {
 });
 
 module.exports = router;
+
+const validateRecipe = (recipe) => {
+  const schema = Joi.object({
+    name: Joi.string().min(5).required(),
+    description: Joi.string().min(5).required(),
+    ingridients: Joi.array(),
+    category: Joi.objectId(),
+  });
+
+  return schema.validate(recipe);
+};

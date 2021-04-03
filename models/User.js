@@ -6,6 +6,8 @@ const UserSchema = new mongoose.Schema(
     email: {
       type: String,
       required: true,
+      minlength: 5,
+      unique: true,
     },
     password: {
       type: String,
@@ -15,13 +17,11 @@ const UserSchema = new mongoose.Schema(
     },
     firstName: {
       type: String,
-      required: true,
       minlength: 5,
       maxlength: 55,
     },
     lastName: {
       type: String,
-      required: true,
       minlength: 5,
       maxlength: 55,
     },
@@ -35,7 +35,9 @@ const UserSchema = new mongoose.Schema(
 );
 
 UserSchema.methods.generateToken = function () {
-  return jwt.sign({ _id: this._id }, process.env.JWT_KEY, { expiresIn: "1h" });
+  return jwt.sign({ _id: this._id, admin: this.isAdmin }, process.env.JWT_KEY, {
+    expiresIn: "1h",
+  });
 };
 
 module.exports = User = mongoose.model("users", UserSchema);
