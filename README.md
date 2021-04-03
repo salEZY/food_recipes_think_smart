@@ -1,10 +1,10 @@
-~Food Recipes API~
+# Food Recipes API
 
 API created as technical task for Think Smart
 
 API was deployed to Heroku: https://food-recipes-think-smart.herokuapp.com/
 
-Routes:
+## Routes:
 
 User:
 
