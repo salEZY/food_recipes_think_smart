@@ -15,8 +15,13 @@ User:
 Recipes: 
 
 ``/recipes/`` GET - fetch all recipes
+
 ``/recipes/:recipeId`` - fetch single recipe
+
 ``/recipes/`` POST - create a new recipe (authenticated user route)
+
 ``/recipes/:recipeId`` PUT - update a recipe (authenticated user route)
+
 ``/recipes/:recipeID`` DELETE - delete a recipe (admin route)
+
 ``/img/:recipeID`` GET - fetch the corresponding image of recipe
