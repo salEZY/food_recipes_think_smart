@@ -18,5 +18,5 @@ require("./routes/routes")(app);
 
 // Server connection
 app.listen(port, () => {
-  console.log(`Server started at port ${port}...`);
+  console.log(`Food Recipes server started at port ${port}...`);
 });
