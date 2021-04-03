@@ -25,3 +25,17 @@ Recipes:
 ``/recipes/:recipeID`` DELETE - delete a recipe (admin route)
 
 ``/img/:recipeID`` GET - fetch the corresponding image of recipe
+
+Categories: 
+
+``/categories/`` GET - fetch all categories
+
+``/recipes/recipes`` - fetch all recipes of one category
+
+``/categories/`` POST - create a new category (authenticated user route)
+
+``/categories/:categoryId`` PUT - update a recipe (authenticated user route)
+
+``/categories/:categoryId`` DELETE - delete a recipe (admin route)
+
+
