@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const userCheck = (req, res, next) => {
   const token = req.header("x-auth-token");
   if (!token) {
-    return res.status(401).send("Authentication failed, no token provided.");
+    return res.status(403).send("Authentication failed, no token provided.");
   }
   try {
     const decodedToken = jwt.verify(token, process.env.JWT_KEY);
@@ -18,8 +18,15 @@ const userCheck = (req, res, next) => {
 };
 
 const adminCheck = (req, res, next) => {
-  if (!decoded.admin)
-    return res.status(401).send("Admin authentication failed.");
+  const token = req.header("x-auth-token");
+  if (!token) {
+    return res.status(403).send("Authentication failed, no token provided.");
+  }
+
+  const decodedToken = jwt.verify(token, process.env.JWT_KEY);
+  console.log(decodedToken);
+  if (!decodedToken.admin)
+    return res.status(403).send("Admin authentication failed.");
   next();
 };
 

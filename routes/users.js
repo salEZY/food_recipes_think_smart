@@ -1,5 +1,6 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
+const Joi = require("joi");
 
 const User = require("../models/User");
 const { userCheck } = require("../util/authorize");
@@ -7,11 +8,10 @@ const { userCheck } = require("../util/authorize");
 const router = express.Router();
 
 // POST register user
-router.get("/", (req, res) => {
-  res.send("USER ROUTES");
-});
-
 router.post("/register", async (req, res) => {
+  const { error } = validateUser(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
   const { email, password, firstName, lastName } = req.body;
 
   let user;
@@ -49,6 +49,9 @@ router.post("/register", async (req, res) => {
 
 // POST user login
 router.post("/login", async (req, res) => {
+  const { error } = validateUser(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
   const { email, password } = req.body;
 
   let user;
@@ -116,3 +119,14 @@ router.post("/:recipeId", async (req, res) => {
 });
 
 module.exports = router;
+
+const validateUser = (user) => {
+  const schema = Joi.object({
+    email: Joi.string().min(5).required().email(),
+    password: Joi.string().min(5).max(255).required(),
+    firstName: Joi.string().min(5).max(55),
+    lastName: Joi.string().min(5).max(55),
+  });
+
+  return schema.validate(user);
+};

@@ -1,4 +1,5 @@
 const express = require("express");
+const Joi = require("joi");
 
 const Recipe = require("../models/Recipe");
 const Category = require("../models/Category");
@@ -9,6 +10,7 @@ const router = express.Router();
 // GET all categories
 router.get("/", async (req, res) => {
   let categories;
+  console.log(Category);
   try {
     categories = await Category.find({});
   } catch (error) {
@@ -42,6 +44,9 @@ router.use(userCheck);
 
 // POST create category
 router.post("/", async (req, res) => {
+  const { error } = validateCategory(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
   let category;
   try {
     category = await Category.findOne({ name: req.body.name });
@@ -133,3 +138,11 @@ router.delete("/:categoryId", async (req, res) => {
 });
 
 module.exports = router;
+
+const validateCategory = (category) => {
+  const schema = Joi.object({
+    name: Joi.string().min(2).required(),
+  });
+
+  return schema.validate(category);
+};

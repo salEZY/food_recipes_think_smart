@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"test1@test.com\",\r\n    \"password\": \"12345\",\r\n    \"firstName\": \"CHIKA\",\r\n    \"lastName\": \"SALEZYNHO\"\r\n}",
+							"raw": "{\r\n    \"email\": \"test1@test.com\"\r\n    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -140,7 +140,7 @@
 						"header": [
 							{
 								"key": "x-auth-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY3MzYzY2E1OWU0ZTViOTg5MjRiYzgiLCJpYXQiOjE2MTczODU0NTIsImV4cCI6MTYxNzM4OTA1Mn0.1Zo6TXlu1m8siYzrkYsfAIOFakjC4HL0wS4hwtTpOBY",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY3MzYzY2E1OWU0ZTViOTg5MjRiYzgiLCJpYXQiOjE2MTc0NTE5NzksImV4cCI6MTYxNzQ1NTU3OX0.d-26scp4_HbT3COPMg0q0kQJQy3F5gQTBMOvtZl2W_E",
 								"type": "text"
 							}
 						],
@@ -149,18 +149,24 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Lasagne Bolognese part 3",
+									"value": "Ham and Eggs",
 									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "Epic italian dish",
+									"value": "Classic breakfast",
 									"type": "text"
 								},
 								{
 									"key": "img",
 									"type": "file",
-									"src": "/E:/1984 mathematics 1600x1200 wallpaper_www.knowledgehi.com_17.jpg"
+									"src": "/E:/EGGS.jpg"
+								},
+								{
+									"key": "ingridients",
+									"value": "[{\"name\": \"Eggs\", \"measure\": 4}, {\"name\": \"Ham\", \"measure\": 100}]",
+									"type": "text",
+									"disabled": true
 								}
 							],
 							"options": {
@@ -188,7 +194,22 @@
 					"name": "/recipes/:recipeId",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Chicken Parmigianno\",\r\n    \"description\": \"Famous italian monster meal low in calories\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:5000/recipes/6064862a20d65636f0212c44",
 							"protocol": "http",
@@ -209,7 +230,13 @@
 					"name": "/recipes/:recipeId",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://localhost:5000/recipes/60648d05cc22ce15ac193331",
 							"protocol": "http",
@@ -279,10 +306,16 @@
 					"name": "/categories/",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY3MzYzY2E1OWU0ZTViOTg5MjRiYzgiLCJpYXQiOjE2MTc0NDUxNDAsImV4cCI6MTYxNzQ0ODc0MH0.Xg0upQi7HpDGfPw5numBZvFBbJ1qb7zAw1J_d5qhygg",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Chicken\"\r\n}",
+							"raw": "{\r\n    \"name\": \"P\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -309,10 +342,16 @@
 					"name": "/categories/:categoryId",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY4NjQzNDQxNTZjZTNiODQ2OWQ2OWQiLCJpYXQiOjE2MTc0NTQxMzIsImV4cCI6MTYxNzQ1NzczMn0.R-psKopE8ZtpEmp2WzJQ45trG1vJYjGIr6az7qQGWJE",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Organic Chicken\",\r\n    \"image\": \"blalba\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Pork\",\r\n    \"image\": \"blalba\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -320,7 +359,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/categories/6065bbb8e5cca8041c9c74ce",
+							"raw": "http://localhost:5000/categories/606614f16fae9f5f54dc6883",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -328,7 +367,7 @@
 							"port": "5000",
 							"path": [
 								"categories",
-								"6065bbb8e5cca8041c9c74ce"
+								"606614f16fae9f5f54dc6883"
 							]
 						},
 						"description": "PUT edit category"
@@ -339,7 +378,13 @@
 					"name": "/categories/:categoryId",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY4NjQzNDQxNTZjZTNiODQ2OWQ2OWQiLCJhZG1pbiI6dHJ1ZSwiaWF0IjoxNjE3NDU1MDM5LCJleHAiOjE2MTc0NTg2Mzl9.ciA1gb7X7bPYxmz0gBESAoJYaZojVV5VmPKbWh3TmS8",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://localhost:5000/categories/6065bbb8e5cca8041c9c74ce",
 							"protocol": "http",
