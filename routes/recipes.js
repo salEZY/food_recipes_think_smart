@@ -93,7 +93,10 @@ router.post("/", async (req, res) => {
 
 // PUT Edit recipe
 router.put("/:recipeId", async (req, res) => {
-  const { name, description } = req.body;
+  const { name, description, ingridients } = req.body;
+
+  let img;
+  if (req.files) img = await convertImg(req.files);
 
   let recipe;
   try {
@@ -105,6 +108,8 @@ router.put("/:recipeId", async (req, res) => {
 
   if (name) recipe.name = name;
   if (description) recipe.description = description;
+  if (ingridients) recipe.ingridients = ingridients;
+  recipe.img = img;
 
   try {
     await recipe.save();
