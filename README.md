@@ -9,7 +9,9 @@ API was deployed to Heroku: https://food-recipes-think-smart.herokuapp.com/
 User:
 
 `/auth/register` POST - register user
+
 `/auth/login` POST - login an user
+
 `/auth/:recipeId` POST - add recipe to user's favorites
 
 Recipes:
