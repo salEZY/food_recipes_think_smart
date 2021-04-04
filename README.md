@@ -11,7 +11,9 @@ Newest Postman collection provided in the repo. Use this one because it has Hero
 User:
 
 `/auth/register` POST - register user
+
 `/auth/login` POST - login an user
+
 `/auth/:recipeId` POST - add recipe to user's favorites
 
 Recipes:
