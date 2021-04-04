@@ -28,13 +28,13 @@ Recipes:
 
 `/recipes/:recipeId` DELETE - delete a recipe (admin route)
 
-`/img/:recipeId` GET - fetch the corresponding image of recipe
+`/recipes/img/:recipeId` GET - fetch the corresponding image of recipe
 
 Categories:
 
 `/categories/` GET - fetch all categories
 
-`/recipes/recipes` - fetch all recipes of one category
+`/categories/recipes` - fetch all recipes of one category
 
 `/categories/` POST - create a new category (authenticated user route)
 
@@ -42,4 +42,4 @@ Categories:
 
 `/categories/:categoryId` DELETE - delete a recipe (admin route)
 
-`/img/:categoryId` GET - fetch the corresponding image of category
+`/categories/img/:categoryId` GET - fetch the corresponding image of category
