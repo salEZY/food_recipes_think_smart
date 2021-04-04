@@ -39,6 +39,22 @@ router.get("/recipes", async (req, res) => {
   res.send(recipesByCategory);
 });
 
+// GET image of recipe
+router.get("/img/:categoryId", async (req, res) => {
+  let recipe;
+  try {
+    recipe = await Recipe.findById(req.params.categoryId);
+  } catch (error) {
+    return res.status(404).send("Error fetching category.");
+  }
+
+  const { image } = recipe;
+  if (!image) return res.status(403).send("No image found");
+
+  const img = Buffer.from(image, "base64");
+  res.contentType("image/png").send(img);
+});
+
 // User check middleware
 router.use(userCheck);
 
@@ -46,6 +62,9 @@ router.use(userCheck);
 router.post("/", async (req, res) => {
   const { error } = validateCategory(req.body);
   if (error) return res.status(400).send(error.details[0].message);
+
+  let img;
+  if (req.files) img = await convertImg(req.files);
 
   let category;
   try {
@@ -58,7 +77,7 @@ router.post("/", async (req, res) => {
 
   category = new Category({
     name: req.body.name,
-    image: req.body.image,
+    image: img,
   });
 
   try {
@@ -72,6 +91,12 @@ router.post("/", async (req, res) => {
 
 // PUT edit category
 router.put("/:categoryId", async (req, res) => {
+  const { error } = validateCategory(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
+  let img;
+  if (req.files) img = await convertImg(req.files);
+
   let category;
   try {
     category = await Category.findById(req.params.categoryId);
@@ -83,7 +108,7 @@ router.put("/:categoryId", async (req, res) => {
   }
 
   if (req.body.name) category.name = req.body.name;
-  if (req.body.image) category.image = req.body.image;
+  if (req.body.image) category.image = img;
 
   try {
     await category.save();
