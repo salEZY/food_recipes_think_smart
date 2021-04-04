@@ -283,7 +283,7 @@
 					"response": []
 				},
 				{
-					"name": "/img/:recipeId",
+					"name": "/recipes/img/:recipeId",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -373,13 +373,24 @@
 						"header": [
 							{
 								"key": "x-auth-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY3MzYzY2E1OWU0ZTViOTg5MjRiYzgiLCJpYXQiOjE2MTc0NDUxNDAsImV4cCI6MTYxNzQ0ODc0MH0.Xg0upQi7HpDGfPw5numBZvFBbJ1qb7zAw1J_d5qhygg",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY5ODBlOGQxNDI5NTAwMTVmZDQxZDQiLCJhZG1pbiI6ZmFsc2UsImlhdCI6MTYxNzUyODY4MSwiZXhwIjoxNjE3NTMyMjgxfQ.H36_PwzCi-H9WpuFl66lRL_ASbQDd9ES9Nvu2zsyVYY",
 								"type": "text"
 							}
 						],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"P\"\r\n}",
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Ox",
+									"type": "text"
+								},
+								{
+									"key": "img",
+									"type": "file",
+									"src": "/E:/Oxen.jpg"
+								}
+							],
 							"options": {
 								"raw": {
 									"language": "json"
@@ -465,6 +476,29 @@
 							]
 						},
 						"description": "DELETE remove category"
+					},
+					"response": []
+				},
+				{
+					"name": "/categories/img/:categoryId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://food-recipes-think-smart.herokuapp.com/categories/img/606989465bbecd001582b983",
+							"protocol": "https",
+							"host": [
+								"food-recipes-think-smart",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"categories",
+								"img",
+								"606989465bbecd001582b983"
+							]
+						},
+						"description": "GET image of category"
 					},
 					"response": []
 				}
