@@ -43,7 +43,7 @@ router.get("/recipes", async (req, res) => {
 router.get("/img/:categoryId", async (req, res) => {
   let recipe;
   try {
-    recipe = await Recipe.findById(req.params.categoryId);
+    recipe = await Category.findById(req.params.categoryId);
   } catch (error) {
     return res.status(404).send("Error fetching category.");
   }
