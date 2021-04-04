@@ -41,14 +41,14 @@ router.get("/recipes", async (req, res) => {
 
 // GET image of recipe
 router.get("/img/:categoryId", async (req, res) => {
-  let recipe;
+  let category;
   try {
-    recipe = await Category.findById(req.params.categoryId);
+    category = await Category.findById(req.params.categoryId);
   } catch (error) {
     return res.status(404).send("Error fetching category.");
   }
 
-  const { image } = recipe;
+  const { image } = category;
   if (!image) return res.status(403).send("No image found");
 
   const img = Buffer.from(image, "base64");
