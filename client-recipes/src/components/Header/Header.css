@@ -9,6 +9,16 @@ header {
   align-content: center;
 }
 
+.header-logo {
+  text-decoration: none;
+}
+.header-logo p {
+  color: #333232;
+  font-size: 25px;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-weight: 900;
+}
+
 ul {
   display: flex;
   flex-direction: row;
@@ -16,4 +26,17 @@ ul {
 }
 ul li {
   margin: 0 1rem;
+}
+
+ul li a {
+  text-decoration: none;
+  padding: 10px 30px;
+  color: white;
+  background-color: #333232;
+  border-radius: 5px 1px;
+  font-size: 15px;
+  transition: all 200ms ease;
+}
+ul li a:hover {
+  background-color: #000;
 }

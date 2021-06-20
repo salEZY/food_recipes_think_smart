@@ -2,4 +2,8 @@ footer {
   height: 5vh;
   width: 100%;
   border-top: 3px solid black;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
