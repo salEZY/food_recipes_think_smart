@@ -11,9 +11,9 @@ const app = express();
 // Connect to Mongo Atlas
 connectToDb();
 
-/* // Set static folder
+// Set static folder
 
-app.use(express.static("client-recipes/build"));
+/* app.use(express.static("client-recipes/build"));
 
 app.get("*", (req, res) => {
   res.sendFile(
