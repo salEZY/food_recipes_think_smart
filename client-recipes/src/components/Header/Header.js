@@ -7,22 +7,32 @@ const Header = () => {
   return (
     <header>
       <Link to="/" className="header-logo">
-        <p>THINK FOOD</p>
+        <p>
+          THINK FOOD <i className="fal fa-utensils-alt"></i>
+        </p>
       </Link>
 
       <nav>
         <ul>
           <li>
-            <Link to="/categories">CATEGORIES</Link>
+            <Link to="/categories">
+              CATEGORIES <i className="fal fa-stream"></i>
+            </Link>
           </li>
           <li>
-            <Link to="/search">SEARCH</Link>
+            <Link to="/search">
+              SEARCH <i className="fal fa-search"></i>
+            </Link>
           </li>
           <li>
-            <Link to="/meals/:userId">MY MEALS</Link>
+            <Link to="/meals/:userId">
+              MY MEALS <i className="fal fa-hat-chef"></i>
+            </Link>
           </li>
           <li>
-            <Link to="/auth">AUTHENTICATE</Link>
+            <Link to="/auth">
+              AUTHENTICATE <i className="fal fa-sign-in"></i>
+            </Link>
           </li>
         </ul>
       </nav>
