@@ -8,7 +8,7 @@ const Header = () => {
     <header>
       <Link to="/" className="header-logo">
         <p>
-          THINK FOOD <i className="fal fa-utensils-alt"></i>
+          Think Food <i className="fal fa-utensils-alt"></i>
         </p>
       </Link>
 
