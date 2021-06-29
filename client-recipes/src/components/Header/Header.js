@@ -1,21 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import Nav from "./components/Nav";
+import Title from "./components/Title";
 
 import "./Header.css";
 
-const Header = () => {
+const Header = ({ modalHandler }) => {
   return (
     <header>
-      <Link to="/" className="header-logo">
-        <p>
-          Think Food <i className="fal fa-utensils-alt"></i>
-        </p>
-      </Link>
+      <Title />
+      <div className="nonmobile-nav">
+        <Nav />
+      </div>
 
-      <Nav />
-      <div className="burger-div">
+      <div className="burger-div" onClick={() => modalHandler(true)}>
         <i className="fal fa-cheeseburger"></i>
       </div>
     </header>

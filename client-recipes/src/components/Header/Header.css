@@ -46,8 +46,14 @@ ul li a:hover {
 }
 
 @media only screen and (max-width: 767px) {
-  nav {
+  .nonmobile-nav {
     display: none;
+  }
+  ul {
+    flex-direction: column;
+  }
+  ul li {
+    margin: 2rem auto;
   }
   .burger-div {
     font-size: 2.5rem;
