@@ -20,7 +20,7 @@ function App() {
       }}
     >
       {modal ? (
-        <Modal modalHandler={modalHandler} />
+        <Modal modalHandler={modalHandler} modal={modal} />
       ) : (
         <>
           <Header modalHandler={modalHandler} />

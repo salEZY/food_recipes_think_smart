@@ -4,11 +4,14 @@ import Title from "../Header/components/Title";
 
 import "./Modal.css";
 
-const Modal = ({ modalHandler }) => {
+const Modal = ({  modalHandler }) => {
   return (
     <>
       <div className="modal-holder" onClick={() => modalHandler(false)}></div>
-      <div className="modal">
+      <div
+        className="modal"
+        
+      >
         <div style={{ paddingTop: "3rem", paddingBottom: "3rem" }}>
           <Title />
         </div>
