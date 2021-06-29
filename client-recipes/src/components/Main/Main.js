@@ -5,7 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import Home from "../Home/Home";
 import Categories from "../Categories/Categories";
 import Search from "../SearchPage/Search";
-import MyMeals from "../../My Meals/MyMeals";
+import MyMeals from "../My Meals/MyMeals";
 import Meal from "../Meal/Meal";
 
 import "./Main.css";
