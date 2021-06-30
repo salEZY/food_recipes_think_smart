@@ -3,23 +3,44 @@
   height: 100vh;
   background-color: rgba(191, 191, 191, 1);
 }
-@keyframes slideRight {
-  from {
-    margin-left: 100%;
-  }
-  to {
-    margin-left: 20%;
-  }
-}
 
-.modal {
+#modal {
   position: absolute;
   top: 0;
-  margin-left: 20%;
+  transition: 0.5s;
   z-index: 100;
   width: 80%;
   height: 100%;
   background-color: white;
   border-left: 3px solid #000;
-  animation: slideRight 500ms;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.activate {
+  animation: slide-in 0.5s forwards;
+  -webkit-animation: slide-in 0.5s forwards;
+}
+
+.dismiss {
+  animation: slide-out 0.5s forwards;
+  -webkit-animation: slide-out 0.5s forwards;
+}
+
+@keyframes slide-in {
+  0% {
+    margin-left: 100%;
+  }
+  100% {
+    margin-left: 20%;
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    margin-left: 20%;
+  }
+  100% {
+    margin-left: 100%;
+  }
 }

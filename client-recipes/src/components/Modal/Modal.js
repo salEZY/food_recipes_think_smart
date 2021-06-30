@@ -1,22 +1,19 @@
 import React from "react";
+import { AppContext } from "../../context/app-context";
 import Nav from "../Header/components/Nav";
 import Title from "../Header/components/Title";
 
 import "./Modal.css";
 
-const Modal = ({  modalHandler }) => {
+const Modal = ({ modal, modalHandler }) => {
+  const appCtx = React.useContext(AppContext);
   return (
     <>
       <div className="modal-holder" onClick={() => modalHandler(false)}></div>
-      <div
-        className="modal"
-        
-      >
-        <div style={{ paddingTop: "3rem", paddingBottom: "3rem" }}>
-          <Title />
-        </div>
+      <div id="modal" className={appCtx.modalClass}>
+        <Title />
         <Nav />
-        <p style={{ marginTop: "4rem" }}>Copyright &copy; 2021 - salEZY</p>
+        <p>Copyright &copy; 2021 - salEZY</p>
       </div>
     </>
   );
