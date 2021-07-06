@@ -17,7 +17,7 @@ function App() {
     else setModalClass("dismiss");
     setTimeout(() => {
       setModal(bool);
-    }, 500);
+    }, 200);
   };
 
   return (
