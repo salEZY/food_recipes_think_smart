@@ -5,12 +5,13 @@ import Title from "../Header/components/Title";
 
 import "./Modal.css";
 
-const Modal = ({ modal, modalHandler }) => {
-  const appCtx = React.useContext(AppContext);
+const Modal = () => {
+  const ctx = React.useContext(AppContext);
+
   return (
     <>
-      <div className="modal-holder" onClick={() => modalHandler(false)}></div>
-      <div id="modal" className={appCtx.modalClass}>
+      <div className="modal-holder" onClick={() => ctx.modalHandler(false)}></div>
+      <div id="modal" className={ctx.modalClass}>
         <Title />
         <Nav />
         <p>Copyright &copy; 2021 - salEZY</p>

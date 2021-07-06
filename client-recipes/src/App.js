@@ -1,4 +1,5 @@
 import React from "react";
+import {useModal} from './util/modal-hook'
 
 import "./App.css";
 
@@ -9,21 +10,14 @@ import Main from "./components/Main/Main";
 import Modal from "./components/Modal/Modal";
 
 function App() {
-  const [modal, setModal] = React.useState(false);
-  const [modalClass, setModalClass] = React.useState("dismiss");
-
-  const modalHandler = (bool) => {
-    if (modalClass === "dismiss") setModalClass("activate");
-    else setModalClass("dismiss");
-    setTimeout(() => {
-      setModal(bool);
-    }, 200);
-  };
+  const {modal, modalClass, modalHandler} = useModal()
 
   return (
     <AppContext.Provider
       value={{
         modalClass: modalClass,
+        modal: modal,
+        modalHandler: modalHandler
       }}
     >
       <div
@@ -34,10 +28,10 @@ function App() {
         }}
       >
         {modal ? (
-          <Modal modalHandler={modalHandler} modal={modal} />
+          <Modal  />
         ) : (
           <>
-            <Header modalHandler={modalHandler} />
+            <Header  />
             <Main />
             <Footer />
           </>
