@@ -5,7 +5,7 @@ const Title = () => {
   return (
     <Link to="/" className="header-logo">
       <p>
-        Think Food <i className="fal fa-utensils-alt"></i>
+        Think Food <i className="fad fa-utensils-alt"></i>
       </p>
     </Link>
   );

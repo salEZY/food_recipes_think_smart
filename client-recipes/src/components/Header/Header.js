@@ -17,7 +17,7 @@ const Header = ( ) => {
       </div>
 
       <div className="burger-div" onClick={() => ctx.modalHandler(true)}>
-        <i className="fal fa-cheeseburger"></i>
+        <i className="fad fa-cheeseburger"></i>
       </div>
     </header>
   );
