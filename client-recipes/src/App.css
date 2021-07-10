@@ -17,3 +17,18 @@ body {
   padding-left: 1rem;
   padding-right: 1rem;
 }
+h2{
+  font-size: 3rem;
+  font-style: oblique;
+  margin-bottom: 3rem;
+  font-family: "Brush Script MT",cursive; 
+}
+h2::after{
+  content: "";
+  display: block;
+  width: 60px;
+  height: 5px;
+  margin: 0 auto;
+  margin-top: 7.5px;
+  background: #000;
+}

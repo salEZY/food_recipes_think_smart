@@ -11,7 +11,7 @@ const router = express.Router();
 // GET all categories
 router.get("/", async (req, res) => {
   let categories;
-  console.log(Category);
+
   try {
     categories = await Category.find({});
   } catch (error) {
