@@ -13,13 +13,13 @@ connectToDb();
 
 // Set static folder
 
-/* app.use(express.static("client-recipes/build"));
+//  app.use(express.static("client-recipes/public"));
 
-app.get("*", (req, res) => {
-  res.sendFile(
-    path.resolve(__dirname, "client-recipes", "build", "index.html")
-  );
-}); */
+// app.get("*", (req, res) => {
+//   res.sendFile(
+//     path.resolve(__dirname, "client-recipes", "public", "index.html")
+//   );
+// }); 
 
 // Middlewares
 require("./util/middlewares")(app);
