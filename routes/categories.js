@@ -53,7 +53,7 @@ router.get("/img/:categoryId", async (req, res) => {
   if (!image) return res.status(403).send("No image found");
 
   const img = Buffer.from(image, "base64");
-  res.contentType("image/png").send(img);
+  res.contentType("blob").send(img);
 });
 
 // User check middleware

@@ -1,5 +1,5 @@
 import React from "react";
-import {useModal} from './util/modal-hook'
+import { useModal } from './util/modal-hook'
 
 import "./App.css";
 
@@ -10,7 +10,7 @@ import Main from "./components/Main/Main";
 import Modal from "./components/Modal/Modal";
 
 function App() {
-  const {modal, modalClass, modalHandler} = useModal()
+  const { modal, modalClass, modalHandler } = useModal()
 
   return (
     <AppContext.Provider
@@ -28,10 +28,10 @@ function App() {
         }}
       >
         {modal ? (
-          <Modal  />
+          <Modal />
         ) : (
           <>
-            <Header  />
+            <Header />
             <Main />
             <Footer />
           </>
